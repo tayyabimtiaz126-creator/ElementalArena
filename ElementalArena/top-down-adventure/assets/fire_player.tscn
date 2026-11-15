@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://c8hi2klayj4qm"]
+
+[ext_resource type="Script" uid="uid://c74ldt5b2sl7q" path="res://scripts/fire_player.gd" id="1_ayefv"]
+[ext_resource type="Texture2D" uid="uid://ohhfjbxd8vni" path="res://assets/fireplayer.png" id="1_sjgjy"]
+[ext_resource type="PackedScene" uid="uid://dw5q1tmuccc3a" path="res://scenes/fireball.tscn" id="2_ppkaq"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_51fql"]
+radius = 19.0
+height = 60.0
+
+[node name="FirePlayer" type="CharacterBody2D" unique_id=316723147]
+collision_mask = 3
+script = ExtResource("1_ayefv")
+projectile_scene = ExtResource("2_ppkaq")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=433037556]
+texture_filter = 3
+position = Vector2(12.000004, 6)
+scale = Vector2(2.9999998, 2.8124998)
+texture = ExtResource("1_sjgjy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1306165947]
+shape = SubResource("CapsuleShape2D_51fql")
+
+[node name="HealthBar" type="ProgressBar" parent="." unique_id=525009717]
+offset_left = -19.0
+offset_top = -40.0
+offset_right = 19.0
+offset_bottom = -33.0
+max_value = 3.0
+value = 3.0
+show_percentage = false
